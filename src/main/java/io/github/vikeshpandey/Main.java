@@ -3,8 +3,8 @@ package io.github.vikeshpandey;
 import io.github.vikeshpandey.element.BaseProduct;
 import io.github.vikeshpandey.element.Cloth;
 import io.github.vikeshpandey.element.Electronic;
+import io.github.vikeshpandey.visitor.Visitor;
 import io.github.vikeshpandey.visitor.PackagingVisitor;
-import io.github.vikeshpandey.visitor.PackagingVisitorImpl;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,8 +20,8 @@ public class Main {
     }
 
     private static void packageProductsForShipping(Set<BaseProduct> products) {
-        PackagingVisitor packagingVisitor = new PackagingVisitorImpl();
-        products.forEach(baseProduct -> baseProduct.performPackaging(packagingVisitor));
+        Visitor visitor = new PackagingVisitor();
+        products.forEach(baseProduct -> baseProduct.accept(visitor));
     }
 
 }

@@ -1,8 +1,8 @@
 package io.github.vikeshpandey.element;
 
-import io.github.vikeshpandey.visitor.PackagingVisitor;
+import io.github.vikeshpandey.visitor.Visitor;
 
 public interface BaseProduct {
 
-    void performPackaging(PackagingVisitor packagingVisitor);
+    void accept(Visitor visitor);
 }

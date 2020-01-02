@@ -1,6 +1,6 @@
 package io.github.vikeshpandey.element;
 
-import io.github.vikeshpandey.visitor.PackagingVisitor;
+import io.github.vikeshpandey.visitor.Visitor;
 
 public class Electronic implements BaseProduct {
     private int voltage;
@@ -10,8 +10,8 @@ public class Electronic implements BaseProduct {
     }
 
     @Override
-    public void performPackaging(PackagingVisitor packagingVisitor) {
-        packagingVisitor.visit(this);
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
     public int getVoltage() {
